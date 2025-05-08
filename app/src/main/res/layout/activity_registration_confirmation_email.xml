@@ -48,6 +48,7 @@
         android:layout_marginTop="8dp"
         android:letterSpacing="-0.04"
         android:lineHeight="16dp"
+        android:textColor="@color/black"
         android:text="We just sent you an email to confirm your address. Tap the link inside to continue setting up your profile."
         android:textAlignment="viewStart"
         android:textSize="16sp"
