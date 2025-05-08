@@ -52,14 +52,15 @@ class MainActivity : ComponentActivity() {
         composeView.setContent {
             SlidingButton(
                 onTrigger = {
-                    startActivity(Intent(this, LoginActivity::class.java))
+                    startActivity(Intent(this, LoginActivity2::class.java))
                 }
             )
         }
 
         val registerNowText = findViewById<TextView>(R.id.registerNowText)
         registerNowText.setOnClickListener {
-            Toast.makeText(this, "Redirecting to Register Page", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -82,7 +83,7 @@ fun SlidingButton(onTrigger: () -> Unit) {
     LaunchedEffect(triggered) {
         if (triggered) {
             kotlinx.coroutines.delay(150)
-            val intent = Intent(context, LoginActivity::class.java)
+            val intent = Intent(context, LoginActivity2::class.java)
             context.startActivity(intent)
         }
     }

@@ -27,7 +27,7 @@
         android:id="@+id/emailInput"
         android:layout_width="320dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="221dp"
+        android:layout_marginTop="20dp"
         android:autofillHints="email"
         android:background="@drawable/edittext_bg"
         android:drawableStart="@drawable/email_icon"
@@ -39,41 +39,19 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/registerButton"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoImage"
+        app:layout_constraintVertical_bias="0.205"
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
-
-    <EditText
-        android:id="@+id/usernameInput"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="160dp"
-        android:autofillHints=""
-        android:background="@drawable/edittext_bg"
-        android:drawableStart="@drawable/username_icon"
-        android:drawablePadding="10dp"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:letterSpacing="-0.04"
-        android:paddingStart="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/registerButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailInput"
-        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/passwordInput"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="100dp"
         android:autofillHints=""
         android:background="@drawable/edittext_bg"
         android:drawableStart="@drawable/password_icon"
@@ -87,54 +65,48 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/usernameInput"
+        app:layout_constraintTop_toBottomOf="@id/emailInput"
         tools:ignore="TextContrastCheck" />
-
-    <EditText
-        android:id="@+id/confirmPasswordInput"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="40dp"
-        android:autofillHints=""
-        android:background="@drawable/edittext_bg"
-        android:drawableStart="@drawable/password_icon"
-        android:drawablePadding="10dp"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:letterSpacing="-0.04"
-        android:paddingStart="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/registerButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordInput"
-        tools:ignore="TextContrastCheck" />
-
-    <!-- Social Login Icons (Facebook, Google, Apple) -->
 
     <Button
-        android:id="@+id/registerButton"
+        android:id="@+id/loginButton"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:background="@drawable/gradient_button"
         android:letterSpacing="-0.04"
-        android:text="Register"
+        android:text="Login"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.7"
         tools:ignore="TextContrastCheck" />
+
+    <!-- Social Login Icons (Facebook, Google, Apple) -->
+
+    <TextView
+        android:id="@+id/forgotPasswordInText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#F5F5F0"
+        android:clickable="true"
+        android:focusable="true"
+        android:letterSpacing="-0.04"
+        android:padding="0dp"
+        android:text="Forgot Password?"
+        android:textColor="#579F4E"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:layout_constraintVertical_bias="0.625"
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <View
         android:id="@+id/view"
@@ -147,7 +119,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerButton"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
         app:layout_constraintVertical_bias="0.250"
         />
 
@@ -161,7 +133,7 @@
         app:layout_constraintEnd_toStartOf="@+id/view2"
         app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toEndOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/registerButton"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
         app:layout_constraintVertical_bias="0.226"
         tools:ignore="TextContrastCheck" />
 
@@ -177,7 +149,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.952"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerButton"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
         app:layout_constraintVertical_bias="0.250" />
 
     <LinearLayout
@@ -231,7 +203,7 @@
         android:id="@+id/noAccountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="72dp"
         android:letterSpacing="-0.04"
         android:text="Already have an account?"
         android:textColor="#000000"
@@ -241,7 +213,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
-        android:id="@+id/signInText"
+        android:id="@+id/registerInText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#F5F5F0"
@@ -249,7 +221,7 @@
         android:focusable="true"
         android:letterSpacing="-0.04"
         android:padding="0dp"
-        android:text="Sign In"
+        android:text="Register"
         android:textColor="#579F4E"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
