@@ -1,0 +1,386 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="TouchTargetSizeCheck,HardcodedText,ContentDescription,TextContrastCheck,RtlSymmetry"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/profileSetup"
+    android:background="#F5F5F0">
+
+    <!-- Bottom View (Drawn first) -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom"
+        android:background="#F5F5F0" />
+
+    <!-- Middle View (Drawn second, overlaps bottom) -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_middle_view" />
+
+    <!-- Top View (Drawn last, overlaps middle) -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="top"
+        android:background="@drawable/bg_top_view" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="380dp"
+            android:layout_marginStart="25dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Allergy Selection"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="-30dp"
+                android:layout_marginStart= "0dp"
+                android:layout_marginTop="30dp" />
+
+            <GridLayout
+                android:id="@+id/checkboxGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="35dp"
+                android:alignmentMode="alignMargins"
+                android:columnCount="3"
+                android:columnOrderPreserved="false"
+                android:paddingTop="8dp"
+                android:rowCount="4">
+
+                <!-- Row 1 -->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Nuts"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Shellfish"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Sesame"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <!-- Row 2 -->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Dairy"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Eggs"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Mustard"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <!-- Row 3 -->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Gluten    "
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Rubber"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Lupin"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <!-- Row 4 -->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Soy"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="Silicone"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="15dp"
+                    android:letterSpacing="-0.04"
+                    android:text="NSAIDs"
+                    android:textColor="#579F4E"
+                    android:textSize="18sp" />
+
+            </GridLayout>
+        </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#F5F5F0"
+        android:textSize="25sp"
+        android:text="Edit Profile"
+        android:layout_marginTop="190dp"
+        android:layout_marginStart="25dp"
+        android:layout_gravity="left"
+        android:letterSpacing="-0.04"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#99C1FF72"
+        android:text="Name"
+        android:layout_marginTop="230dp"
+        android:layout_marginStart="25dp"
+        android:layout_gravity="left"
+        android:letterSpacing="-0.04"/>
+
+    <EditText
+        android:layout_width="366dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="2.5dp"
+        android:drawablePadding="10dp"
+        android:inputType="textPersonName"
+        android:layout_marginTop="255dp"
+        android:letterSpacing="-0.04"
+        android:paddingStart="13dp"
+        android:background="@drawable/editprofile_bg"
+        android:hint="Jane Doerunski"
+        android:textColorHint="#9D9D9D"
+        android:layout_gravity="top|center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#99C1FF72"
+        android:text="Age"
+        android:layout_marginTop="310dp"
+        android:layout_marginStart="25dp"
+        android:letterSpacing="-0.04"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#99C1FF72"
+        android:text="Gender"
+        android:layout_marginTop="310dp"
+        android:layout_marginStart="105dp"
+        android:letterSpacing="-0.04"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#99C1FF72"
+        android:text="Blood Type"
+        android:layout_marginTop="310dp"
+        android:layout_marginStart="185dp"
+        android:letterSpacing="-0.04"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#99C1FF72"
+        android:text="Date of Birth"
+        android:layout_marginTop="310dp"
+        android:layout_marginStart="290dp"
+        android:letterSpacing="-0.04"/>
+
+    <!-- LinearLayout to hold 4 smaller EditTexts horizontally -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="335dp"
+        android:layout_marginStart="5dp"
+        android:gravity="center">
+
+        <!-- 1st EditText -->
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="44dp"
+            android:padding="5dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/editprofile_bg"
+            android:hint="25"
+            android:textColorHint="#9D9D9D"
+            android:inputType="text"
+            android:gravity="center"
+            android:letterSpacing="-0.04" />
+
+        <!-- 2nd EditText -->
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="44dp"
+            android:background="@drawable/editprofile_bg"
+            android:layout_marginEnd="30dp"
+            android:hint="F"
+            android:textColorHint="#9D9D9D"
+            android:inputType="text"
+            android:gravity="center"
+            android:letterSpacing="-0.04" />
+
+        <!-- 3rd EditText -->
+        <EditText
+            android:layout_width="75dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/editprofile_bg"
+            android:hint="AB"
+            android:textColorHint="#9D9D9D"
+            android:inputType="text"
+            android:gravity="center"
+            android:letterSpacing="-0.04" />
+
+        <!-- 4th EditText -->
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="44dp"
+            android:background="@drawable/editprofile_bg"
+            android:hint="04/02/02"
+            android:textColorHint="#9D9D9D"
+            android:inputType="text"
+            android:gravity="center"
+            android:letterSpacing="-0.04" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="605dp"
+        android:layout_gravity="top"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dietary Preferences"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <Spinner
+            android:id="@+id/dropdownMenu"
+            android:layout_width="366dp"
+            android:layout_height="44dp"
+            android:background="@drawable/spinner_background"
+            android:popupBackground="@color/white"
+            android:spinnerMode="dropdown"
+            android:padding="5dp"
+            android:entries="@array/sample_items" />
+    </LinearLayout>
+
+    <!-- In your layout file (e.g., activity_main.xml) -->
+    <ImageButton
+        android:id="@+id/arrowButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="750dp"
+        android:background="@drawable/circular_button_background"
+        android:src="@drawable/arrow_right"
+        android:scaleType="centerInside"
+        android:clickable="true"
+        android:focusable="true"
+        android:importantForAccessibility="yes"
+         />
+
+
+    <!-- Profile Image (Placed above all other views in terms of layering) -->
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/profile" />
+</FrameLayout>

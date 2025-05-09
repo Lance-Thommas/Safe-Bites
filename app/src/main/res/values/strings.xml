@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SafeBites2</string>
+
+    <string-array name="sample_items">
+        <item>Vegan</item>
+        <item>Vegetarian</item>
+        <item>Keto</item>
+        <item>Paleo</item>
+    </string-array>
+
 </resources>
