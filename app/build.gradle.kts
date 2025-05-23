@@ -58,6 +58,8 @@ dependencies {
     implementation(libs.androidx.media3.ui)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.foundation.android)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
 
     // Testing dependencies
     testImplementation(libs.junit)

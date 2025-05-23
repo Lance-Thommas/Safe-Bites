@@ -71,7 +71,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun SlidingButton(onTrigger: () -> Unit) {
+fun SlidingButton(
+    buttonText: String = "Let's Eat", // NEW: default text
+    onTrigger: () -> Unit
+) {
     val context = LocalContext.current
     val maxOffsetDp = 280.dp
     val maxOffsetPx = with(LocalDensity.current) { maxOffsetDp.toPx() }
@@ -83,8 +86,7 @@ fun SlidingButton(onTrigger: () -> Unit) {
     LaunchedEffect(triggered) {
         if (triggered) {
             kotlinx.coroutines.delay(150)
-            val intent = Intent(context, LoginActivity2::class.java)
-            context.startActivity(intent)
+            onTrigger()
         }
     }
 
@@ -105,6 +107,7 @@ fun SlidingButton(onTrigger: () -> Unit) {
                 ),
             contentAlignment = Alignment.CenterStart
         ) {
+            // Chevron Trail
             Row(
                 modifier = Modifier
                     .fillMaxHeight()
@@ -132,6 +135,7 @@ fun SlidingButton(onTrigger: () -> Unit) {
                 )
             }
 
+            // Slider Knob
             Box(
                 modifier = Modifier
                     .offset { IntOffset(offset.roundToInt() + 10.dp.roundToPx(), 0) }
@@ -162,8 +166,9 @@ fun SlidingButton(onTrigger: () -> Unit) {
                 )
             }
 
+            // 🟡 Custom Text Here
             Text(
-                text = "Let's Eat",
+                text = buttonText,
                 color = Color.White,
                 fontSize = 20.sp,
                 modifier = Modifier.align(Alignment.Center)
@@ -171,4 +176,5 @@ fun SlidingButton(onTrigger: () -> Unit) {
         }
     }
 }
+
 

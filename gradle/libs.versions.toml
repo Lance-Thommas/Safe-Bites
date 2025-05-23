@@ -12,6 +12,8 @@ media3Exoplayer = "1.6.1"
 appcompat = "1.7.0"
 constraintlayout = "2.2.1"
 foundationAndroid = "1.8.0"
+material = "1.10.0"
+activity = "1.8.0"
 
 [libraries]
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
@@ -35,6 +37,8 @@ androidx-compose-foundation = { group = "androidx.compose.foundation", name = "f
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-foundation-android = { group = "androidx.compose.foundation", name = "foundation-android", version.ref = "foundationAndroid" }
 material-icons-extended = "androidx.compose.material:material-icons-extended:1.7.8"
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 
 
 [plugins]

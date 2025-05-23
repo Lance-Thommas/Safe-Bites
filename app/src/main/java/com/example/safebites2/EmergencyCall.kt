@@ -10,5 +10,9 @@ class EmergencyCall : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emergency_call)
 
+        findViewById<Button>(R.id.cancel_call).setOnClickListener {
+            startActivity(Intent(this, HomePage::class.java))
+        }
+
     }
 }

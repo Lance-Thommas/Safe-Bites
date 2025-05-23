@@ -383,4 +383,12 @@
         android:layout_gravity="top|center_horizontal"
         android:layout_marginTop="60dp"
         android:src="@drawable/profile" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp"
+        app:srcCompat="@drawable/chevron_left2" />
 </FrameLayout>

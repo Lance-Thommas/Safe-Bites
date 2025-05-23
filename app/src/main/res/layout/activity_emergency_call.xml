@@ -79,4 +79,22 @@
         app:layout_constraintVertical_bias="0.848"
         tools:ignore="TouchTargetSizeCheck" />
 
+    <Button
+        android:id="@+id/cancel_call"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/settings_bg1"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="CANCEL"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958"
+        tools:ignore="TouchTargetSizeCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,13 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SafeBites2"
         tools:targetApi="31">
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".LoginActivity2" />
-        <activity android:name=".ForgotPassword" />
-        <activity android:name=".AlmostThere" />
-        <activity android:name=".ForgotPasswordConfirmation" />
-        <activity android:name=".RegistrationEmailConfirmation" />
-        <activity android:name=".ProfileSetup" />
 
         <activity
             android:name=".MainActivity"
@@ -31,6 +24,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SafeList" android:exported="true"/>
+        <activity
+            android:name=".SettingsPage" android:exported="true"/>
+        <activity
+            android:name=".PackagePayment" android:exported="true"/>
+        <activity
+            android:name=".PackagePage" android:exported="true"/>
+        <activity
+            android:name=".HomePage"/>
+        <activity android:name=".LoginActivity" android:exported="true"/>
+        <activity android:name=".LoginActivity2" android:exported="true"/>
+        <activity android:name=".ForgotPassword" android:exported="true"/>
+        <activity android:name=".AlmostThere" android:exported="true"/>
+        <activity android:name=".ForgotPasswordConfirmation" android:exported="true"/>
+        <activity android:name=".RegistrationEmailConfirmation" android:exported="true"/>
+        <activity android:name=".EmergencyCall" android:exported="true"/>
+        <activity android:name=".ProfileSetup" android:exported="true"/>
+
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
