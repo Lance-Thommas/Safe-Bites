@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SafeBites2</string>
+    <string name="app_name">SafeBites</string>
 
     <string-array name="sample_items">
         <item>Vegan</item>

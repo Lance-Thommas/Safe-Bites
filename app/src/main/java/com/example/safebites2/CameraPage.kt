@@ -56,15 +56,18 @@ class CameraPage : AppCompatActivity() {
         "milk", "eggs", "fish", "shellfish", "tree nuts", "peanuts", "wheat", "soy", "sesame",
         "gluten", "mustard", "celery", "lupin", "sulfites", "dairy", "corn", "yeast", "mollusks",
         "nightshades", "legumes", "citrus", "tomatoes", "strawberries", "chocolate", "caffeine",
-        "food dyes", "alcohol", "gelatin", "msg"
+        "food dyes", "alcohol", "gelatin", "msg", "sesame seeds", "avocados", "ibuprofen", "penicillin",
+        "sulfa", "aspirin", "naproxen", "paracetamol"
     )
 
     private val mockProductDB = mapOf(
         "6294001819226" to "Sugar, milk, cocoa, caffeine, nuts.",
-        "987654321098" to "Milk, cultures, fruit.",
-        "555555555555" to "Wheat, yeast, salt, sugar.",
-        "111111111111" to "Water, orange, sugar.",
-        "222222222222" to "Caffeine, sugar, flavoring."
+        "19099905" to "Isomalt, Maltitol, Propylene Glycol, Flavors, Benzocaine, Sucralose, Menthol, Sodium Bicarbonate",
+        "20048556" to "Enriched Wheat Flour (Wheat Flour, Malted Barley Flour, Niacin, Iron, Thiamin Mononitrate, Riboflavin, Folic Acid), Sugar, Water, Egg, Soybean Oil, Cornmeal, Corn Starch, Leavening (Sodium Acid Pyrophosphate, Sodium Bicarbonate), Nonfat Milk Powder, Sea Salt, Soy Lecithin, Xanthan Gum, Enzymes.",
+        "3046920029759" to "Cocoa mass, Cocoa butter, Fat reduced cocoa, Sugar, Vanilla\n" +
+                "Traces: Milk, Nuts, Soybeans",
+        "6111099003897" to "Filtered vegetable oils, non-hydrogenated ml tayeb individual starch mustahabbat (2471) and (478) soy analgesic (1222) syrian acid (200) citric (2300) antioxidants potassium soria (1202) chocoferrols mixture), mink colored (1600) wafina, au : store in a cool place terr all frans : tents",
+
     )
 
     private val permissionLauncher = registerForActivityResult(
