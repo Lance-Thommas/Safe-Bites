@@ -19,12 +19,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ExperimentalGetImage
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.ImageProxy
-import androidx.camera.core.Preview
+import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +31,7 @@ import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import java.util.Locale
+import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -72,10 +67,18 @@ class CameraPage : AppCompatActivity() {
         "222222222222" to "Caffeine, sugar, flavoring."
     )
 
+    private val permissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { granted ->
+        if (granted) startCamera()
+        else showSnackbar("Camera permission is required.")
+    }
+
     @SuppressLint("ClickableViewAccessibility", "ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera_page)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main21)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -97,25 +100,18 @@ class CameraPage : AppCompatActivity() {
         }
 
         cameraExecutor = Executors.newSingleThreadExecutor()
-
         requestPermissionAndStartCamera()
 
         captureButton.setOnClickListener {
             captureButton.isEnabled = false
-
             captureAndAnalyzeImage()
-
-            captureButton.postDelayed({
-                captureButton.isEnabled = true
-            }, 1000)
+            captureButton.postDelayed({ captureButton.isEnabled = true }, 1000)
         }
 
         switchModeButton.setOnClickListener {
             isBarcodeMode = !isBarcodeMode
             showSnackbar("Switched to ${if (isBarcodeMode) "Barcode" else "Text"} mode.")
-
-            val iconRes = if (isBarcodeMode) R.drawable.scan else R.drawable.note
-            captureButton.setImageResource(iconRes)
+            captureButton.setImageResource(if (isBarcodeMode) R.drawable.scan else R.drawable.note)
         }
 
         saveToAllergyBtn.setOnClickListener {
@@ -127,19 +123,17 @@ class CameraPage : AppCompatActivity() {
             val editText = dialogView.findViewById<EditText>(R.id.manualEditText61)
             editText.setText(extractedTextView.text.toString())
 
-            val dialog = AlertDialog.Builder(this)
+            AlertDialog.Builder(this)
                 .setTitle("Edit Scanned Text")
                 .setView(dialogView)
                 .setPositiveButton("Save") { _, _ ->
                     val editedText = editText.text.toString().trim()
-                    val capitalizedText = capitalizeWords(editedText)
-                    extractedTextView.text = highlightAllergens(capitalizedText)
+                    extractedTextView.text = highlightAllergens(capitalizeWords(editedText))
                     showSnackbar("Text updated.")
                 }
                 .setNegativeButton("Cancel", null)
                 .create()
-
-            dialog.show()
+                .show()
         }
 
         rootLayout.setOnTouchListener { v, event ->
@@ -148,7 +142,6 @@ class CameraPage : AppCompatActivity() {
                 bottomSheet.getLocationOnScreen(location)
                 val x = event.rawX
                 val y = event.rawY
-
                 if (x < location[0] || x > location[0] + bottomSheet.width ||
                     y < location[1] || y > location[1] + bottomSheet.height
                 ) {
@@ -161,15 +154,8 @@ class CameraPage : AppCompatActivity() {
     }
 
     private fun requestPermissionAndStartCamera() {
-        val permissionLauncher = registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { granted ->
-            if (granted) startCamera()
-            else showSnackbar("Camera permission is required.")
-        }
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
-            PackageManager.PERMISSION_GRANTED
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            == PackageManager.PERMISSION_GRANTED
         ) {
             startCamera()
         } else {
@@ -178,7 +164,7 @@ class CameraPage : AppCompatActivity() {
     }
 
     private fun startCamera() {
-        val cameraProviderFuture = ProcessCameraProvider.Companion.getInstance(this)
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         cameraProviderFuture.addListener({
             val cameraProvider = cameraProviderFuture.get()
             val preview = Preview.Builder().build().also {
@@ -190,9 +176,7 @@ class CameraPage : AppCompatActivity() {
 
             try {
                 cameraProvider.unbindAll()
-                cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview, imageCapture
-                )
+                cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture)
             } catch (e: Exception) {
                 Log.e("Camera", "Failed to bind camera use cases: ${e.message}", e)
                 showSnackbar("Failed to start camera.")
@@ -207,9 +191,7 @@ class CameraPage : AppCompatActivity() {
             object : ImageCapture.OnImageCapturedCallback() {
                 override fun onCaptureSuccess(imageProxy: ImageProxy) {
                     imageProxy.image?.let { mediaImage ->
-                        val image = InputImage.fromMediaImage(
-                            mediaImage, imageProxy.imageInfo.rotationDegrees
-                        )
+                        val image = InputImage.fromMediaImage(mediaImage, imageProxy.imageInfo.rotationDegrees)
                         if (isBarcodeMode) analyzeImageForBarcode(image)
                         else analyzeImageForText(image)
                     }
@@ -229,15 +211,9 @@ class CameraPage : AppCompatActivity() {
         recognizer.process(image)
             .addOnSuccessListener { visionText ->
                 val extracted = visionText.text.trim()
-
-                if (extracted.isEmpty()) {
-                    extractedTextView.text = "No text was scanned."
-                } else {
-                    val formattedIngredients = formatIngredients(extracted)
-                    val capitalizedText = capitalizeWords(formattedIngredients)
-                    extractedTextView.text = highlightAllergens(capitalizedText)
-                }
-
+                extractedTextView.text =
+                    if (extracted.isEmpty()) "No text was scanned."
+                    else highlightAllergens(capitalizeWords(formatIngredients(extracted)))
                 bottomSheet.visibility = View.VISIBLE
             }
             .addOnFailureListener { e ->
@@ -256,20 +232,12 @@ class CameraPage : AppCompatActivity() {
                 }
 
                 val results = StringBuilder()
-
                 for (barcode in barcodes) {
                     val code = barcode.rawValue ?: "Unknown"
-                    val productInfo = mockProductDB[code]
-
-                    if (productInfo != null) {
-                        results.append(productInfo)
-                    } else {
-                        results.append("Product not found for barcode: $code")
-                    }
+                    results.append(mockProductDB[code] ?: "Product not found for barcode: $code")
                 }
 
-                val highlighted = highlightAllergens(results.toString())
-                extractedTextView.text = highlighted
+                extractedTextView.text = highlightAllergens(results.toString())
                 bottomSheet.visibility = View.VISIBLE
             }
             .addOnFailureListener { e ->
@@ -278,34 +246,25 @@ class CameraPage : AppCompatActivity() {
             }
     }
 
-    private fun formatIngredients(extractedText: String): String {
-        return extractedText
-            .split(",", "\n")
-            .map { it.trim() }
-            .filter { it.isNotEmpty() }
-            .joinToString(", ") + "."
-    }
+    private fun formatIngredients(text: String): String =
+        text.split(",", "\n").map { it.trim() }.filter { it.isNotEmpty() }.joinToString(", ") + "."
 
-    private fun capitalizeWords(text: String): String {
-        return text.split(" ").joinToString(" ") { word ->
-            word.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
-        }
-    }
+    private fun capitalizeWords(text: String): String =
+        text.split(" ").joinToString(" ") { it.replaceFirstChar { c -> c.titlecase(Locale.getDefault()) } }
 
     private fun highlightAllergens(text: String): SpannableString {
         val spannable = SpannableString(text)
-        val lowerText = text.lowercase(Locale.getDefault())
-
+        val lower = text.lowercase(Locale.getDefault())
         userAllergens.forEach { allergen ->
-            var startIndex = lowerText.indexOf(allergen)
-            while (startIndex >= 0) {
+            var start = lower.indexOf(allergen)
+            while (start >= 0) {
                 spannable.setSpan(
                     ForegroundColorSpan(Color.RED),
-                    startIndex,
-                    startIndex + allergen.length,
+                    start,
+                    start + allergen.length,
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
-                startIndex = lowerText.indexOf(allergen, startIndex + allergen.length)
+                start = lower.indexOf(allergen, start + allergen.length)
             }
         }
         return spannable
