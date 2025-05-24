@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -33,6 +34,10 @@ class PackagePage : AppCompatActivity() {
         )
 
         findViewById<TextView>(R.id.textView24).setOnClickListener {
+            startActivity(Intent(this, HomePage::class.java))
+        }
+
+        findViewById<ImageView>(R.id.paymentcancel).setOnClickListener {
             startActivity(Intent(this, HomePage::class.java))
         }
 

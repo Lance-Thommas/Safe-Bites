@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main21"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CameraPage">
+
+    <!-- Fullscreen Camera Preview -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView51"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!-- Circular Scan Button -->
+    <ImageButton
+        android:id="@+id/captureButton52"
+        android:layout_width="74dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/circlebutton"
+        android:scaleType="centerInside"
+        android:src="@drawable/note"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <!-- Mode Switch Button -->
+    <ImageButton
+        android:id="@+id/switchmodebutton53"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginBottom="75dp"
+        android:background="@drawable/secondary_btn"
+        android:scaleType="centerInside"
+        android:src="@drawable/swap"
+        android:alpha="0.5"
+        android:padding="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <!-- Default state of the scanner is text. -->
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginBottom="40dp"
+        android:text="Swap Modes"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchmodebutton53"
+        tools:ignore="HardcodedText" />
+
+    <!-- Bottom Sheet Styled Popup -->
+    <LinearLayout
+        android:id="@+id/bottomSheet55"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bottomsheetbg"
+        android:padding="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="16dp"
+        android:layout_margin="16dp"
+        android:maxHeight="400dp">
+
+        <TextView
+            android:id="@+id/ingredientLabe56l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="10dp"
+            android:text="Ingredients List"
+            android:fontFamily="@font/inter"
+            android:textColor="#1C2840"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/manualInputBtn57"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight=".75"
+                android:background="@drawable/pillbutton"
+                android:fontFamily="@font/inter"
+                android:text="Manual Input"
+                android:textAllCaps="false"
+                android:textColor="#1B2840" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/extractedTextView57"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@android:color/black" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveToAllergyBtn58"
+                android:layout_width="153dp"
+                android:layout_height="33dp"
+                android:background="@drawable/save_button_bg"
+                android:fontFamily="@font/inter"
+                android:text="Save to Allergy List +"
+                android:textAllCaps="false"
+                android:textSize="12dp"
+                android:textColor="@android:color/white"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/backbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Back"
+        android:background="@drawable/spinner_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

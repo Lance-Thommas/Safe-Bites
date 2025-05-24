@@ -18,5 +18,6 @@ class RegistrationEmailConfirmation : AppCompatActivity() {
         )
         textView.text = styledText
 
+
     }
 }

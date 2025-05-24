@@ -14,6 +14,7 @@ constraintlayout = "2.2.1"
 foundationAndroid = "1.8.0"
 material = "1.10.0"
 activity = "1.8.0"
+cameraView = "1.4.2"
 
 [libraries]
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
@@ -39,6 +40,7 @@ androidx-foundation-android = { group = "androidx.compose.foundation", name = "f
 material-icons-extended = "androidx.compose.material:material-icons-extended:1.7.8"
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "cameraView" }
 
 
 [plugins]

@@ -24,6 +24,7 @@ class SettingsPage : AppCompatActivity() {
             Toast.makeText(this, "SafeBite List has been RESET", Toast.LENGTH_SHORT).show()
         }
 
+
         findViewById<Button>(R.id.export).setOnClickListener {
             Toast.makeText(this, "Profile has been Exported", Toast.LENGTH_SHORT).show()
         }

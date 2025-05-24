@@ -45,6 +45,10 @@ class HomePage : AppCompatActivity() {
             startActivity(Intent(this, SafeList::class.java))
         }
 
+        findViewById<Button>(R.id.camera_btn).setOnClickListener {
+            startActivity(Intent(this, CameraPage::class.java))
+        }
+
 
         }
     }

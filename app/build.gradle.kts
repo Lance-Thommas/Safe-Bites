@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.androidx.foundation.android)
     implementation(libs.material)
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.camera.view)
 
     // Testing dependencies
     testImplementation(libs.junit)
@@ -71,5 +72,20 @@ dependencies {
     // Debug dependencies
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // CameraX
+    implementation("androidx.camera:camera-core:1.4.2")
+    implementation("androidx.camera:camera-camera2:1.4.2")
+    implementation("androidx.camera:camera-lifecycle:1.4.2")
+    implementation("androidx.camera:camera-view:1.4.2")
+
+    // ML Kit Text Recognition
+    implementation("com.google.mlkit:text-recognition:16.0.1")
+
+    // Barcode Scanner
+    implementation ("com.google.mlkit:barcode-scanning:17.1.0")
+
+    // Material Components (for Snackbar)
+    implementation("com.google.android.material:material:1.11.0")
 
 }

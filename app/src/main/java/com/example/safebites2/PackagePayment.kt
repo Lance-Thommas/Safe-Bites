@@ -3,6 +3,7 @@ package com.example.safebites2
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,6 +21,10 @@ class PackagePayment : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.subscribe).setOnClickListener {
+            startActivity(Intent(this, HomePage::class.java))
+        }
+
+        findViewById<ImageView>(R.id.paymentcancel).setOnClickListener {
             startActivity(Intent(this, HomePage::class.java))
         }
     }
