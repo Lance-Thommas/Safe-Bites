@@ -28,6 +28,10 @@ class SafeList : AppCompatActivity() {
             startActivity(Intent(this, CameraPage::class.java))
         }
 
+        findViewById<Button>(R.id.emergency_btn).setOnClickListener {
+            startActivity(Intent(this, EmergencyCall::class.java))
+        }
+
 
         findViewById<ImageView>(R.id.homebtn).setOnClickListener {
             startActivity(Intent(this, HomePage::class.java))
