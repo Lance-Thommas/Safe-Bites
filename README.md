@@ -6,7 +6,7 @@ This repository contains the source code for the SafeBites Android app, along wi
 
 ## Installing the APK (Quick way)
 
-1. Download the `SafeBites.apk` file from the root of this repository.
+1. Download the `SafeBites.apk` file inside apk folder of this repository.
 2. Transfer the APK to your Android device (via USB, email, cloud storage, etc.).
 3. On your Android device, allow installation from unknown sources if you haven't already (Settings > Security > Install unknown apps).
 4. Open the APK file and follow the prompts to install SafeBites.
@@ -27,7 +27,6 @@ This repository contains the source code for the SafeBites Android app, along wi
 ## Notes
 
 - The included APK is a debug build intended for testing purposes.
-- To generate a signed release APK for distribution, follow Android Studio’s guide on [Signing Your App](https://developer.android.com/studio/publish/app-signing).
 
 ---
 
